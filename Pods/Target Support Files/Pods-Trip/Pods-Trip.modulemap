@@ -1,0 +1,6 @@
+framework module Pods_Trip {
+  umbrella header "Pods-Trip-umbrella.h"
+
+  export *
+  module * { export * }
+}

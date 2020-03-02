@@ -1,0 +1,34 @@
+PODS:
+  - CalendarKit (0.13.0):
+    - DateToolsSwift
+    - Neon
+  - DateToolsSwift (5.0.0)
+  - Neon (0.4.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
+
+DEPENDENCIES:
+  - CalendarKit
+  - RealmSwift
+
+SPEC REPOS:
+  trunk:
+    - CalendarKit
+    - DateToolsSwift
+    - Neon
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  CalendarKit: 25acd9ca18d0c9adb33716675ae19a74440c8403
+  DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
+  Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
+
+PODFILE CHECKSUM: f338bb5dedf10ffc1cb0e702fe628762812684a3
+
+COCOAPODS: 1.8.4
