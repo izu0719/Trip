@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet var collectionView: UICollectionView!
     
     
- 
+    
     
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        
         return RealmTripList.count
     }
     
@@ -82,48 +82,57 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         collectionView.reloadData()
-       
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "Schedule", sender: RealmTripList[indexPath.row])
+        
+        var idRealmTrip = RealmTripList[indexPath.row]
+//        scheduleViewController.idList = idRealmTrip.scheduleList
+//        
+//        print(scheduleViewController.idList)
+        
     }
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != "Schedule" {
             // ③遷移先ViewCntrollerの取得
             let nextView = segue.destination as! AddTripViewController
-
+            
             let realm = try! Realm()
             let realmTrip = RealmTrip()
             var scheduleList = List<Schedule>()
-
+            
             RealmTripList = realm.objects(RealmTrip.self)
+            
+            
             if RealmTripList.count != 0 {
                 realmTrip.id = RealmTripList.max(ofProperty: "id")! + 1
             }
             //  AddTripViewController.realmTrip = realmTrip
-
+            
         }  else if segue.identifier == "Schedule" {
             let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
-
-     
-           var idRealmTrip = try! Realm().objects(RealmTrip.self).filter("id == %@", RealmTrip().id).last
             
+           var idRealmTrip = sender as! RealmTrip
             
+//
 //            var idList = idRealmTrip?.scheduleList
 //
-            scheduleViewController.idList = idRealmTrip!.scheduleList
-            
-            print(scheduleViewController.idList)
+//            scheduleViewController.idList = idRealmTrip!.scheduleList
+//
+//            print(scheduleViewController.idList)
         }
-
+        
         
     }
     
- 
+    
     
 }
 

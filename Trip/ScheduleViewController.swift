@@ -20,12 +20,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     let realm = try! Realm()
     let realmTrip = RealmTrip()
     
+    var indexPath = IndexPath.self
     
     var idList = List<Schedule>()
-    var scheduleList = List<Schedule>()
   
+    
     let schedule = Schedule()
- var scheduleContents: Results<Schedule>!
+    var scheduleContents: Results<Schedule>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
         do{
             let realm = try! Realm()
-//            let realmTrip = RealmTrip()
-//            let schedule = Schedule()
+            //            let realmTrip = RealmTrip()
+            //            let schedule = Schedule()
             
             scheduleContents  = realm.objects(Schedule.self)
             tableView.reloadData()
@@ -54,7 +55,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scheduleList.count
+        return idList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,13 +64,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         if let cell = cell as? TableViewCell {
-            print(idList)
-            let scheduleIndex = idList[indexPath.row]
-            print(scheduleIndex)
+            //            print(idList)
+                        let scheduleIndex = idList[indexPath.row]
+                        print(scheduleIndex)
+            
+            
             
             cell.scheduleTime?.text = scheduleIndex.startTime + "〜" + scheduleIndex.endTime
             cell.scheduleTitle.text = scheduleIndex.scheduleTitle
-            
+
             
             
         }

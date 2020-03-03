@@ -14,8 +14,7 @@ class AddTripViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
-   
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
