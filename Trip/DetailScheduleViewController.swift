@@ -1,5 +1,5 @@
 //
-//  ScheduleDetailViewController.swift
+//  DetailScheduleViewController.swift
 //  Trip
 //
 //  Created by 坂本 泉 on 2020/03/02.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ScheduleDetailViewController: UIViewController {
+class DetailScheduleViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
@@ -17,11 +18,16 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet var placeLabel: UILabel!
     @IBOutlet var memoLabel: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //titleLabel = 
 
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

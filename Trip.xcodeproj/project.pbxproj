@@ -26,7 +26,7 @@
 		FD8CA4E5240C22A400B75C59 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CA4E3240BCEC300B75C59 /* CollectionViewCell.xib */; };
 		FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */; };
 		FD8CA4E9240C3E2E00B75C59 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */; };
-		FD8CA4EB240CEA9E00B75C59 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4EA240CEA9E00B75C59 /* ScheduleDetailViewController.swift */; };
+		FD8CA4EB240CEA9E00B75C59 /* DetailScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		FD8CA4E3240BCEC300B75C59 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionViewCell.xib; path = /Users/izumi/Desktop/L4S/Trip/Trip/CollectionViewCell.xib; sourceTree = "<absolute>"; };
 		FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		FD8CA4EA240CEA9E00B75C59 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleViewController.swift; sourceTree = "<group>"; };
 		FDF6F9127AF7A2AF373A60E0 /* Pods-Trip-TripUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip-TripUITests.release.xcconfig"; path = "Target Support Files/Pods-Trip-TripUITests/Pods-Trip-TripUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,7 +172,7 @@
 				FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */,
 				FD237D6F2408DDE800D905CD /* AddScheduleViewController.swift */,
 				FD237D732408DF3C00D905CD /* RealmSwift.swift */,
-				FD8CA4EA240CEA9E00B75C59 /* ScheduleDetailViewController.swift */,
+				FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 				FD237D742408DF3C00D905CD /* RealmSwift.swift in Sources */,
 				FD8CA4E4240BCEC300B75C59 /* CollectionViewCell.swift in Sources */,
 				FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */,
-				FD8CA4EB240CEA9E00B75C59 /* ScheduleDetailViewController.swift in Sources */,
+				FD8CA4EB240CEA9E00B75C59 /* DetailScheduleViewController.swift in Sources */,
 				FD237D702408DDE800D905CD /* AddScheduleViewController.swift in Sources */,
 				FD274D0124077FD800E95A5D /* ViewController.swift in Sources */,
 				FD237D6C2408DD1400D905CD /* AddTripViewController.swift in Sources */,

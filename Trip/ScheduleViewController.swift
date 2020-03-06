@@ -19,11 +19,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     let realm = try! Realm()
     let realmTrip = RealmTrip()
+     var RealmTripList: Results<RealmTrip>!
     
-    var indexPath = IndexPath.self
-    
+    //VCからもらってきたList
     var idList = List<Schedule>()
-  
+    
+   
     
     let schedule = Schedule()
     var scheduleContents: Results<Schedule>!
@@ -37,17 +38,14 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")
         // Do any additional setup after loading the view.
         
-        do{
-            let realm = try! Realm()
-            //            let realmTrip = RealmTrip()
-            //            let schedule = Schedule()
-            
-            scheduleContents  = realm.objects(Schedule.self)
-            tableView.reloadData()
-            
-            
-            
-        }
+        
+        let realm = try! Realm()
+        //            let realmTrip = RealmTrip()
+        //            let schedule = Schedule()
+        
+        scheduleContents  = realm.objects(Schedule.self)
+        tableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,8 +53,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return idList.count
+       // return RealmTripList[tripId].scheduleList.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell")
@@ -64,15 +66,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         if let cell = cell as? TableViewCell {
-            //            print(idList)
-                        let scheduleIndex = idList[indexPath.row]
-                        print(scheduleIndex)
             
+           let scheduleIndex = idList[indexPath.row]
+//            print(scheduleIndex)
             
+     //       let scheduleIndex = RealmTripList?[tripId].scheduleList[indexPath.row]
             
             cell.scheduleTime?.text = scheduleIndex.startTime + "〜" + scheduleIndex.endTime
-            cell.scheduleTitle.text = scheduleIndex.scheduleTitle
-
+            cell.scheduleTitle?.text = scheduleIndex.scheduleTitle
+            
             
             
         }
@@ -81,6 +83,44 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "AddSchedule", sender: idList)
+//
+//
+//        //        scheduleViewController.idList = idRealmTrip.scheduleList
+//        //
+//        //        print(scheduleViewController.idList)
+//    }
+
+//         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//              performSegue(withIdentifier: "AddSchedule", sender: tripId)
+//    }
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "AddSchedule" {
+            let addScheduleViewController: AddScheduleViewController = segue.destination as! AddScheduleViewController
+
+           // let tripId = sender as! Int
+           // let idList = sender as! List<Schedule>
+
+          //  addScheduleViewController.tripId = tripId
+            
+           addScheduleViewController.idList = idList
+            //
+            //            print(scheduleViewController.idList)
+        }
+
+        
+    }
+    
+    
+    
+
     /*
      // MARK: - Navigation
      

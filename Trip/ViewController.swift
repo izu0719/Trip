@@ -14,11 +14,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var RealmTripList: Results<RealmTrip>!
     
-    
     @IBOutlet var collectionView: UICollectionView!
-    
-    
-    
     
     
     override func viewDidLoad() {
@@ -39,8 +35,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             RealmTripList = realm.objects(RealmTrip.self)
             collectionView.reloadData()
             
-        }catch{
-            
         }
         
     }
@@ -55,7 +49,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) // 表示するセルを登録(先程命名した"Cell")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        // 表示するセルを登録
         cell.backgroundColor = UIColor.red  // セルの色
         
         if let cell = cell as? CollectionViewCell {
@@ -88,53 +83,62 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "Schedule", sender: RealmTripList[indexPath.row])
-        
-        var idRealmTrip = RealmTripList[indexPath.row]
-//        scheduleViewController.idList = idRealmTrip.scheduleList
-//        
-//        print(scheduleViewController.idList)
-        
+
+        //    var idRealmTrip = RealmTripList[indexPath.row]
+        //      scheduleViewController.idList = idRealmTrip.scheduleList
+        //
+        //        print(scheduleViewController.idList)
+
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "Schedule", sender: indexPath.row)
+//
+//        //    var idRealmTrip = RealmTripList[indexPath.row]
+//        //      scheduleViewController.idList = idRealmTrip.scheduleList
+//        //
+//        //        print(scheduleViewController.idList)
+//
+//    }
+//
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "Schedule" {
-            // ③遷移先ViewCntrollerの取得
-            let nextView = segue.destination as! AddTripViewController
-            
-            let realm = try! Realm()
-            let realmTrip = RealmTrip()
-            var scheduleList = List<Schedule>()
-            
-            RealmTripList = realm.objects(RealmTrip.self)
-            
-            
-            if RealmTripList.count != 0 {
-                realmTrip.id = RealmTripList.max(ofProperty: "id")! + 1
-            }
-            //  AddTripViewController.realmTrip = realmTrip
-            
-        }  else if segue.identifier == "Schedule" {
+
+        if segue.identifier == "Schedule" {
             let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
-            
-           var idRealmTrip = sender as! RealmTrip
-            
-//
-//            var idList = idRealmTrip?.scheduleList
-//
-//            scheduleViewController.idList = idRealmTrip!.scheduleList
-//
-//            print(scheduleViewController.idList)
+
+            let idRealmTrip = sender as! RealmTrip
+
+
+            scheduleViewController.idList = idRealmTrip.scheduleList
+
         }
-        
-        
+
+
     }
+
+  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//          if segue.identifier == "Schedule" {
+//              let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
+//
+//          //  let tripId = sender as! Int
+//                //as Int
+//
+//
+//        //    scheduleViewController.tripId = tripId
+//            print(tripId)
+//       //     scheduleViewController.idList = RealmTripList?[tripId].scheduleList
+//
+//          }
+          
+          
+      }
+      
     
-    
-    
-}
+
 
 
 

@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class AddScheduleViewController: UIViewController {
-
+    
     @IBOutlet var scheduleTitleTextField: UITextField!
     @IBOutlet var scheduleDate: UIDatePicker!
     @IBOutlet var scheduleStartTime: UIDatePicker!
@@ -20,20 +20,24 @@ class AddScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     let realm = try! Realm()
-  
+    var idList = List<Schedule>()
+    var RealmTripList: Results<RealmTrip>!
+    
     
     @IBAction func save(){
         do{
             let realm = try! Realm()
-         //   let realmTrip = RealmTrip()
+            let realmTrip = RealmTrip()
             let schedule = Schedule()
             
+     
             
+            //Date
             schedule.scheduleTitle = scheduleTitleTextField.text!
             let format = DateFormatter()
             format.dateStyle = .short
@@ -41,7 +45,7 @@ class AddScheduleViewController: UIViewController {
             
             schedule.date = format.string(from: scheduleDate.date)
             
-      
+            
             schedule.startTime = format.string(from: scheduleStartTime.date)
             schedule.endTime = format.string(from: scheduleEndTime.date)
             
@@ -49,22 +53,29 @@ class AddScheduleViewController: UIViewController {
             schedule.memo = scheduleMemoTextField.text
             
             
+            
+            //全部に保存される
+            //            try! realm.write{
+            //                for realmTrip in realm.objects(RealmTrip.self) {
+            //                realmTrip.scheduleList.append(schedule)
+            //                print(realm.objects(RealmTrip.self))
+            //                }
+            
             try! realm.write{
-                for realmTrip in realm.objects(RealmTrip.self) {
-                realmTrip.scheduleList.append(schedule)
-                print(realm.objects(RealmTrip.self))
-                }
-                
+             
+                        idList.append(schedule)
+                        print(idList)
+               
             }
-          
+       
+            
         }
-         // ViewController().test()
+        
         self.dismiss(animated: true, completion: nil)
-      
-      //  ViewController.collectionView.reloadData()
-     
+        
         
     }
+    
     
     //キャンセル
     @IBAction func cancel(){
@@ -73,13 +84,13 @@ class AddScheduleViewController: UIViewController {
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

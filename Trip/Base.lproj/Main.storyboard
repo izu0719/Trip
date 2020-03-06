@@ -89,7 +89,7 @@
                     <navigationItem key="navigationItem" title="スケジュール" id="wzm-Jt-C8j">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ys1-SI-wJf">
                             <connections>
-                                <segue destination="kFu-o7-pb2" kind="presentation" modalPresentationStyle="fullScreen" id="dfV-TQ-IwS"/>
+                                <segue destination="kFu-o7-pb2" kind="presentation" identifier="AddSchedule" modalPresentationStyle="fullScreen" id="dfV-TQ-IwS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

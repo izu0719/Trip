@@ -14,7 +14,8 @@ class AddTripViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
-
+    
+    var RealmTripList: Results<RealmTrip>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class AddTripViewController: UIViewController {
         
     }
     
-
+    
     //保存
     @IBAction func save(){
         do{
@@ -39,18 +40,29 @@ class AddTripViewController: UIViewController {
             realmTrip.startDate = format.string(from: startDatePicker.date)
             realmTrip.endDate = format.string(from: endDatePicker.date)
             
+            //id
+                     RealmTripList = realm.objects(RealmTrip.self)
+                     
+                     
+                     if RealmTripList.count != 0 {
+                         realmTrip.id = RealmTripList.max(ofProperty: "id")! + 1
+                     }
+            
             try! realm.write{
                 realm.add(realmTrip)
                 print(realmTrip.endDate)
+                print(realmTrip.id)
                 
             }
             
-          
+         
+            
+            
         }
-       
+        
         self.dismiss(animated: true, completion: nil)
-
-       
+        
+        
         
     }
     
