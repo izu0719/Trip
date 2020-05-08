@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AddScheduleViewController: UIViewController {
+class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var scheduleTitleTextField: UITextField!
     @IBOutlet var scheduleDate: UIDatePicker!
@@ -18,58 +18,85 @@ class AddScheduleViewController: UIViewController {
     @IBOutlet var schedulePlaceTextField: UITextField!
     @IBOutlet var scheduleMemoTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet var saveButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
+    
+    
     
     let realm = try! Realm()
     var idList = List<Schedule>()
     var RealmTripList: Results<RealmTrip>!
+    let sortedList = List<Schedule>()
+      var dateList = List<String>()
+    
+     var idRealmTrip = RealmTrip()
+       
+       let schedule = Schedule()
+       var scheduleContents: Results<Schedule>!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+             self.scheduleTitleTextField.delegate = self
+        self.schedulePlaceTextField.delegate = self
+        self.scheduleMemoTextField.delegate = self
+        saveButton.layer.cornerRadius = 25
+        cancelButton.layer.cornerRadius = 25
+        saveButton.backgroundColor = UIColor(hex: "35E6E0")
+        
+        let format = DateFormatter()
+                           format.dateFormat = "yyyy/MM/dd"
+        
+      
+        scheduleDate.minimumDate = idRealmTrip.startDate
+        scheduleDate.maximumDate = idRealmTrip.endDate
+        // Do any additional setup after loading the view.
+    }
+
+       
     
     
     @IBAction func save(){
-        do{
+        
             let realm = try! Realm()
             let realmTrip = RealmTrip()
             let schedule = Schedule()
             
-     
+            
             
             //Date
             schedule.scheduleTitle = scheduleTitleTextField.text!
+            
+          
+            
             let format = DateFormatter()
-            format.dateStyle = .short
-            format.timeStyle = .short
+                       format.dateFormat = "yyyy/MM/dd"
+//        scheduleDate.minimumDate = dateList[0].date
+    
+
+        schedule.date = format.string(from: scheduleDate.date)
+           
+            schedule.startTime = scheduleStartTime.date
+            schedule.endTime = scheduleEndTime.date
+            //schedule.endTime = timeFormat.string(from: scheduleEndTime.date)
+
             
-            schedule.date = format.string(from: scheduleDate.date)
+            print(schedule.startTime)
+            
+            schedule.place = schedulePlaceTextField.text!
+            schedule.memo = scheduleMemoTextField.text!
             
             
-            schedule.startTime = format.string(from: scheduleStartTime.date)
-            schedule.endTime = format.string(from: scheduleEndTime.date)
-            
-            schedule.place = schedulePlaceTextField.text
-            schedule.memo = scheduleMemoTextField.text
-            
-            
-            
-            //全部に保存される
-            //            try! realm.write{
-            //                for realmTrip in realm.objects(RealmTrip.self) {
-            //                realmTrip.scheduleList.append(schedule)
-            //                print(realm.objects(RealmTrip.self))
-            //                }
+             
             
             try! realm.write{
-             
-                        idList.append(schedule)
-                        print(idList)
-               
+                
+                idList.append(schedule)
+                print(idList)
+                
             }
-       
             
-        }
+
+     
         
         self.dismiss(animated: true, completion: nil)
         
@@ -82,7 +109,12 @@ class AddScheduleViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            scheduleTitleTextField.resignFirstResponder()
+        schedulePlaceTextField.resignFirstResponder()
+        scheduleMemoTextField.resignFirstResponder()
+            return true
+        }
     /*
      // MARK: - Navigation
      
@@ -94,3 +126,5 @@ class AddScheduleViewController: UIViewController {
      */
     
 }
+
+

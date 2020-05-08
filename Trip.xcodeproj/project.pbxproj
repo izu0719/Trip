@@ -27,6 +27,9 @@
 		FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */; };
 		FD8CA4E9240C3E2E00B75C59 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */; };
 		FD8CA4EB240CEA9E00B75C59 /* DetailScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */; };
+		FDA48D9B246463BA008B4346 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA48D9A246463BA008B4346 /* ContainerViewController.swift */; };
+		FDE8699A2414B6850065471D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE869992414B6850065471D /* NavigationViewController.swift */; };
+		FDE8699C2414C2DF0065471D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8699B2414C2DF0065471D /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleViewController.swift; sourceTree = "<group>"; };
+		FDA48D9A246463BA008B4346 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		FDE869992414B6850065471D /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		FDE8699B2414C2DF0065471D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FDF6F9127AF7A2AF373A60E0 /* Pods-Trip-TripUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip-TripUITests.release.xcconfig"; path = "Target Support Files/Pods-Trip-TripUITests/Pods-Trip-TripUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,12 +173,15 @@
 				FD274D0724077FDA00E95A5D /* LaunchScreen.storyboard */,
 				FD274D0A24077FDA00E95A5D /* Info.plist */,
 				FD237D6B2408DD1400D905CD /* AddTripViewController.swift */,
-				FD237D6D2408DDCE00D905CD /* ScheduleViewController.swift */,
 				FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */,
 				FD8CA4E7240C3E2E00B75C59 /* TableViewCell.xib */,
+				FD237D6D2408DDCE00D905CD /* ScheduleViewController.swift */,
 				FD237D6F2408DDE800D905CD /* AddScheduleViewController.swift */,
-				FD237D732408DF3C00D905CD /* RealmSwift.swift */,
 				FD8CA4EA240CEA9E00B75C59 /* DetailScheduleViewController.swift */,
+				FDE869992414B6850065471D /* NavigationViewController.swift */,
+				FD237D732408DF3C00D905CD /* RealmSwift.swift */,
+				FDE8699B2414C2DF0065471D /* UIColor.swift */,
+				FDA48D9A246463BA008B4346 /* ContainerViewController.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -437,6 +446,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD237D6E2408DDCE00D905CD /* ScheduleViewController.swift in Sources */,
+				FDE8699C2414C2DF0065471D /* UIColor.swift in Sources */,
+				FDA48D9B246463BA008B4346 /* ContainerViewController.swift in Sources */,
+				FDE8699A2414B6850065471D /* NavigationViewController.swift in Sources */,
 				FD237D742408DF3C00D905CD /* RealmSwift.swift in Sources */,
 				FD8CA4E4240BCEC300B75C59 /* CollectionViewCell.swift in Sources */,
 				FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */,
@@ -620,7 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = 826YV2LVLD;
 				INFOPLIST_FILE = Trip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,7 +653,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = 826YV2LVLD;
 				INFOPLIST_FILE = Trip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

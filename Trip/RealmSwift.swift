@@ -12,10 +12,14 @@ import RealmSwift
 class RealmTrip: Object {
     @objc dynamic var id = 0
     @objc dynamic var title = ""
-    @objc dynamic var startDate = ""
-    @objc dynamic var endDate = ""
+    @objc dynamic var startDate: Date!
+    @objc dynamic var endDate: Date!
+    @objc dynamic var image: Data? = nil
     
     let scheduleList = List<Schedule>()
+    var dateList = List<String>()
+    
+    let dateScheduleList = List<DateSchedule>()
     
     override static func primaryKey() -> String? {
         return "id"
@@ -24,16 +28,19 @@ class RealmTrip: Object {
     }
 }
 
-
+class DateSchedule: Object{
+    @objc dynamic var date: Date!
+    let scheduleList = List<Schedule>()
+}
 
 
 class Schedule: Object{
     @objc dynamic var scheduleTitle = "タイトル"
     @objc dynamic var date: String!
-    @objc dynamic var startTime: String!
-    @objc dynamic var endTime: String!
-    @objc dynamic var place: String!
-    @objc dynamic var memo: String!
+    @objc dynamic var startTime: Date!
+    @objc dynamic var endTime: Date!
+    @objc dynamic var place = ""
+    @objc dynamic var memo = ""
 }
 
 

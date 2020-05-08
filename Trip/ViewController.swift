@@ -17,6 +17,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet var collectionView: UICollectionView!
     
     
+
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,6 +27,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        
+        collectionView.layer.cornerRadius = 25
         
         // レイアウト
         let layout = UICollectionViewFlowLayout()
@@ -51,12 +56,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         // 表示するセルを登録
-        cell.backgroundColor = UIColor.red  // セルの色
-        
+       
         if let cell = cell as? CollectionViewCell {
             
             cell.titleLabel.text = RealmTripList[indexPath.row].title
-            cell.dateLabel.text = RealmTripList[indexPath.row].startDate + "〜" + RealmTripList[indexPath.row].endDate
+            
+            let format = DateFormatter()
+                      format.dateFormat = "yyyy/MM/dd"
+            
+            let startDateText = format.string(from: RealmTripList[indexPath.row].startDate)
+            let endDateText = format.string(from: RealmTripList[indexPath.row].endDate)
+            cell.dateLabel.text = startDateText + "〜" + endDateText
+            
+            let uiimage = UIImage(data: RealmTripList[indexPath.row].image!)!
+            
+            cell.backgroundImageView.image = uiimage
+            cell.backgroundImageView.contentMode = .scaleAspectFill
+            
+            cell.titleLabel.textColor = UIColor.white
+            cell.dateLabel.textColor = UIColor.white
             
         }
         
@@ -68,10 +86,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //レイアウト
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let horizontalSpace : CGFloat = 20
-        let cellSize : CGFloat = self.view.bounds.width / 2 - horizontalSpace
-        return CGSize(width: cellSize, height: cellSize)
+        let horizontalSpace : CGFloat = 30
+        
+        let cellSize : CGFloat = self.view.bounds.width - horizontalSpace
+        return CGSize(width: cellSize, height: cellSize / 1.5)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+          return 15
+          
+      }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,18 +115,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "Schedule", sender: indexPath.row)
-//
-//        //    var idRealmTrip = RealmTripList[indexPath.row]
-//        //      scheduleViewController.idList = idRealmTrip.scheduleList
-//        //
-//        //        print(scheduleViewController.idList)
-//
-//    }
-//
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -111,7 +123,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
             let idRealmTrip = sender as! RealmTrip
 
-
+            scheduleViewController.idRealmTrip = idRealmTrip
             scheduleViewController.idList = idRealmTrip.scheduleList
 
         }

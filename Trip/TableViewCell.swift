@@ -13,6 +13,7 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet var scheduleTime: UILabel!
     @IBOutlet var scheduleTitle: UILabel!
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
