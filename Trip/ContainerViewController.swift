@@ -19,7 +19,9 @@ class ContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ self.navigationItem.title = idRealmTrip.title
+        
+         dateList = idRealmTrip.dateList
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +37,15 @@ class ContainerViewController: UIViewController {
                addScheduleViewController.idRealmTrip = idRealmTrip
                
 
-           }
+           }else if segue.identifier == "Schedule" {
+                  let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
+
+              //    let idRealmTrip = sender as! RealmTrip
+
+                  scheduleViewController.idRealmTrip = idRealmTrip
+                  scheduleViewController.idList = idRealmTrip.scheduleList
+
+              }
     }
     /*
     // MARK: - Navigation

@@ -133,7 +133,6 @@ class AddTripViewController: UIViewController, UIImagePickerControllerDelegate, 
             format.dateFormat = "yyyy/MM/dd"
     
          
-
             
             realmTrip.startDate = startDatePicker.date
             realmTrip.endDate = endDatePicker.date

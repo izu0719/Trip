@@ -104,9 +104,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
     
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "Schedule", sender: RealmTripList[indexPath.row])
+//
+//        //    var idRealmTrip = RealmTripList[indexPath.row]
+//        //      scheduleViewController.idList = idRealmTrip.scheduleList
+//        //
+//        //        print(scheduleViewController.idList)
+//
+//    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Schedule", sender: RealmTripList[indexPath.row])
+        performSegue(withIdentifier: "Container", sender: RealmTripList[indexPath.row])
 
         //    var idRealmTrip = RealmTripList[indexPath.row]
         //      scheduleViewController.idList = idRealmTrip.scheduleList
@@ -115,17 +126,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "Schedule" {
-            let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
-
+//        if segue.identifier == "Schedule" {
+//            let scheduleViewController: ScheduleViewController = segue.destination as! ScheduleViewController
+//
+//            let idRealmTrip = sender as! RealmTrip
+//
+//            scheduleViewController.idRealmTrip = idRealmTrip
+//            scheduleViewController.idList = idRealmTrip.scheduleList
+//
+//        }else
+        if segue.identifier ==  "Container"{
+             let containerViewController: ContainerViewController = segue.destination as! ContainerViewController
+                       
             let idRealmTrip = sender as! RealmTrip
 
-            scheduleViewController.idRealmTrip = idRealmTrip
-            scheduleViewController.idList = idRealmTrip.scheduleList
-
+            containerViewController.idRealmTrip = idRealmTrip
+            containerViewController.idList = idRealmTrip.scheduleList
+                       
+                      
         }
 
 
