@@ -37,7 +37,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         do{
             let realm = try! Realm()
-            RealmTripList = realm.objects(RealmTrip.self)
+            RealmTripList = realm.objects(RealmTrip.self).sorted(byKeyPath: "startDate", ascending: false)
             collectionView.reloadData()
             
         }

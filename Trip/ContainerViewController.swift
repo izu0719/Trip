@@ -17,6 +17,9 @@ class ContainerViewController: UIViewController {
     var idList = List<Schedule>()
     var idRealmTrip = RealmTrip()
     
+    @IBOutlet var editButton: UIButton!
+    lazy var barButton: UIBarButtonItem = UIBarButtonItem.init(customView: editButton)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  self.navigationItem.title = idRealmTrip.title
@@ -25,6 +28,41 @@ class ContainerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func edit(){
+           let alert: UIAlertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.actionSheet)
+           
+           let edit: UIAlertAction = UIAlertAction(title: "edit", style: UIAlertAction.Style.default, handler:{
+               (action: UIAlertAction!) -> Void in
+               print("edit")
+           })
+           let delete: UIAlertAction = UIAlertAction(title: "delete", style: UIAlertAction.Style.destructive, handler:{
+               (action: UIAlertAction!) -> Void in
+               
+               self.deleteTrip()
+               
+               self.navigationController?.popViewController(animated: true)
+               print("delete")
+           })
+           let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+               (action: UIAlertAction!) -> Void in
+               print("cancel")
+           })
+           
+           alert.addAction(edit)
+           alert.addAction(delete)
+           alert.addAction(cancelAction)
+           
+           present(alert, animated: true, completion: nil)
+       }
+       
+       
+       //trip削除
+       func deleteTrip(){
+           try! realm.write{
+               realm.delete(idRealmTrip)
+           }
+       }
+       
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
            if segue.identifier == "AddSchedule" {
