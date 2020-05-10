@@ -63,6 +63,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             let format = DateFormatter()
                       format.dateFormat = "yyyy/MM/dd"
+          
+        
             
             let startDateText = format.string(from: RealmTripList[indexPath.row].startDate)
             let endDateText = format.string(from: RealmTripList[indexPath.row].endDate)

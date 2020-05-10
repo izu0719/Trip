@@ -131,13 +131,14 @@ class AddTripViewController: UIViewController, UIImagePickerControllerDelegate, 
             realmTrip.title = titleTextField.text!
             let format = DateFormatter()
             format.dateFormat = "yyyy/MM/dd"
-    
+      format.timeZone = TimeZone(identifier: "Asia/Tokyo")
          
             
             realmTrip.startDate = startDatePicker.date
             realmTrip.endDate = endDatePicker.date
             
-
+    print(realmTrip.startDate)
+    print(realmTrip.endDate)
         
             realmTrip.image = tripImage.image?.jpegData(compressionQuality: 1.0)
             

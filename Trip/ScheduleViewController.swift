@@ -85,6 +85,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var number: Int!
     
     var sectionName = Set<String>()
+    
     func date() -> List<String> {
         let realm = try! Realm()
         sectionName = Set(realm.objects(Schedule.self).value(forKey: "date") as! [String])

@@ -22,6 +22,8 @@
 		FD274D0924077FDA00E95A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD274D0724077FDA00E95A5D /* LaunchScreen.storyboard */; };
 		FD274D1424077FDA00E95A5D /* TripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD274D1324077FDA00E95A5D /* TripTests.swift */; };
 		FD274D1F24077FDA00E95A5D /* TripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD274D1E24077FDA00E95A5D /* TripUITests.swift */; };
+		FD617DC42467F54300CD74FA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD617DC32467F54300CD74FA /* Date.swift */; };
+		FD617DC62468131800CD74FA /* CalenderDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD617DC52468131800CD74FA /* CalenderDayViewController.swift */; };
 		FD8CA4E4240BCEC300B75C59 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4E2240BCEC300B75C59 /* CollectionViewCell.swift */; };
 		FD8CA4E5240C22A400B75C59 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CA4E3240BCEC300B75C59 /* CollectionViewCell.xib */; };
 		FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */; };
@@ -76,6 +78,8 @@
 		FD274D1A24077FDA00E95A5D /* TripUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD274D1E24077FDA00E95A5D /* TripUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripUITests.swift; sourceTree = "<group>"; };
 		FD274D2024077FDA00E95A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD617DC32467F54300CD74FA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		FD617DC52468131800CD74FA /* CalenderDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderDayViewController.swift; sourceTree = "<group>"; };
 		FD8CA4E2240BCEC300B75C59 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = /Users/izumi/Desktop/L4S/Trip/Trip/CollectionViewCell.swift; sourceTree = "<absolute>"; };
 		FD8CA4E3240BCEC300B75C59 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionViewCell.xib; path = /Users/izumi/Desktop/L4S/Trip/Trip/CollectionViewCell.xib; sourceTree = "<absolute>"; };
 		FD8CA4E6240C3E2E00B75C59 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				FD274CFE24077FD800E95A5D /* SceneDelegate.swift */,
 				FD274D0024077FD800E95A5D /* ViewController.swift */,
 				FD274D0224077FD800E95A5D /* Main.storyboard */,
+				FD617DC52468131800CD74FA /* CalenderDayViewController.swift */,
 				FD274D0524077FDA00E95A5D /* Assets.xcassets */,
 				FD274D0724077FDA00E95A5D /* LaunchScreen.storyboard */,
 				FD274D0A24077FDA00E95A5D /* Info.plist */,
@@ -182,6 +187,7 @@
 				FD237D732408DF3C00D905CD /* RealmSwift.swift */,
 				FDE8699B2414C2DF0065471D /* UIColor.swift */,
 				FDA48D9A246463BA008B4346 /* ContainerViewController.swift */,
+				FD617DC32467F54300CD74FA /* Date.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -451,9 +457,11 @@
 				FDE8699A2414B6850065471D /* NavigationViewController.swift in Sources */,
 				FD237D742408DF3C00D905CD /* RealmSwift.swift in Sources */,
 				FD8CA4E4240BCEC300B75C59 /* CollectionViewCell.swift in Sources */,
+				FD617DC62468131800CD74FA /* CalenderDayViewController.swift in Sources */,
 				FD8CA4E8240C3E2E00B75C59 /* TableViewCell.swift in Sources */,
 				FD8CA4EB240CEA9E00B75C59 /* DetailScheduleViewController.swift in Sources */,
 				FD237D702408DDE800D905CD /* AddScheduleViewController.swift in Sources */,
+				FD617DC42467F54300CD74FA /* Date.swift in Sources */,
 				FD274D0124077FD800E95A5D /* ViewController.swift in Sources */,
 				FD237D6C2408DD1400D905CD /* AddTripViewController.swift in Sources */,
 				FD274CFD24077FD800E95A5D /* AppDelegate.swift in Sources */,
